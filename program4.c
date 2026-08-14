@@ -1,26 +1,30 @@
 #include <stdio.h>
 
-int main() {
-    int A[3], B[3], C[6], i;
+#define MAX 20
 
-    printf("Enter Array A:\n");
-    for(i = 0; i < 3; i++)
-        scanf("%d", &A[i]);
+int main()
+{
+    int stack[MAX];
+    int top = -1;
+    int n, i;
+    int fact = 1;
 
-    printf("Enter Array B:\n");
-    for(i = 0; i < 3; i++)
-        scanf("%d", &B[i]);
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
-    for(i = 0; i < 3; i++)
-        C[i] = A[i];
+    for (i = n; i >= 1; i--)
+    {
+        top++;
+        stack[top] = i;
+    }
 
-    for(i = 0; i < 3; i++)
-        C[i + 3] = B[i];
+    while (top >= 0)
+    {
+        fact = fact * stack[top];
+        top--;
+    }
 
-    printf("Merged Array:\n");
-
-    for(i = 0; i < 6; i++)
-        printf("%d ", C[i]);
+    printf("Factorial = %d\n", fact);
 
     return 0;
 }

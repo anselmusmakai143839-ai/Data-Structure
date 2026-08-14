@@ -1,22 +1,33 @@
 #include <stdio.h>
+#include <string.h>
 
-int main() {
-    int A[3], B[3], C[3], i;
+#define MAX 100
 
-    printf("Enter elements of Array A:\n");
-    for(i = 0; i < 3; i++)
-        scanf("%d", &A[i]);
+int main()
+{
+    char stack[MAX];
+    char str[MAX];
+    int top = -1;
+    int i;
 
-    printf("Enter elements of Array B:\n");
-    for(i = 0; i < 3; i++)
-        scanf("%d", &B[i]);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    for(i = 0; i < 3; i++)
-        C[i] = A[i] + B[i];
+    for (i = 0; i < strlen(str); i++)
+    {
+        top++;
+        stack[top] = str[i];
+    }
 
-    printf("Array C:\n");
-    for(i = 0; i < 3; i++)
-        printf("%d ", C[i]);
+    printf("Reverse string: ");
+
+    while (top >= 0)
+    {
+        printf("%c", stack[top]);
+        top--;
+    }
+
+    printf("\n");
 
     return 0;
 }

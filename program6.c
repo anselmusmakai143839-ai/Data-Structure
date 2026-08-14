@@ -1,31 +1,26 @@
 #include <stdio.h>
 
-int main() {
-    int arr[20], n, pos, value, i;
+int main()
+{
+    int a, b;
+    int i;
+    int gcd = 1;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter first number: ");
+    scanf("%d", &a);
 
-    printf("Enter elements:\n");
+    printf("Enter second number: ");
+    scanf("%d", &b);
 
-    for(i = 0; i < n; i++)
-        scanf("%d", &arr[i]);
+    for (i = 1; i <= a && i <= b; i++)
+    {
+        if (a % i == 0 && b % i == 0)
+        {
+            gcd = i;
+        }
+    }
 
-    printf("Enter position: ");
-    scanf("%d", &pos);
-
-    printf("Enter value: ");
-    scanf("%d", &value);
-
-    for(i = n; i >= pos; i--)
-        arr[i] = arr[i - 1];
-
-    arr[pos - 1] = value;
-
-    printf("New Array:\n");
-
-    for(i = 0; i <= n; i++)
-        printf("%d ", arr[i]);
+    printf("GCD = %d\n", gcd);
 
     return 0;
 }

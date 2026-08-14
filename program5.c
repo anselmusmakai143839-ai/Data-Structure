@@ -1,21 +1,34 @@
 #include <stdio.h>
 
-int main() {
-    int arr[10], i, largest;
+#define MAX 20
 
-    printf("Enter 10 elements:\n");
+int main()
+{
+    int stack[MAX];
+    int top = -1;
+    int base, power;
+    int i;
+    int answer = 1;
 
-    for(i = 0; i < 10; i++)
-        scanf("%d", &arr[i]);
+    printf("Enter base: ");
+    scanf("%d", &base);
 
-    largest = arr[0];
+    printf("Enter power: ");
+    scanf("%d", &power);
 
-    for(i = 1; i < 10; i++) {
-        if(arr[i] > largest)
-            largest = arr[i];
+    for (i = 1; i <= power; i++)
+    {
+        top++;
+        stack[top] = base;
     }
 
-    printf("Largest Element = %d", largest);
+    while (top >= 0)
+    {
+        answer = answer * stack[top];
+        top--;
+    }
+
+    printf("Answer = %d\n", answer);
 
     return 0;
 }

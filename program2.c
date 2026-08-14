@@ -1,20 +1,25 @@
 #include <stdio.h>
 
-int main() {
-    int arr[10], i, sum = 0;
-    float average;
-
-    printf("Enter 10 elements:\n");
-
-    for(i = 0; i < 10; i++) {
-        scanf("%d", &arr[i]);
-        sum += arr[i];
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
     }
 
-    average = sum / 10.0;
+    return n * factorial(n - 1);
+}
 
-    printf("Sum = %d\n", sum);
-    printf("Average = %.2f", average);
+int main()
+{
+    int n, answer;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    answer = factorial(n);
+
+    printf("Factorial = %d\n", answer);
 
     return 0;
 }
